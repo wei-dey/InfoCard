@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import { palette } from '@mui/system';
 import { OutlinedInput, Button, useTheme, Typography, Box } from '@mui/material';
 
 function App() {
@@ -37,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-      <Box 
+      <Box
       >
         <Typography variant="h4">
           Information Card
@@ -85,7 +84,9 @@ function App() {
             setUsername(event.target.value);
           }}
         />
-        <Button onClick={createUser} > Create User </Button>
+        <Button
+        varient="contained"
+        onClick={createUser} > Create User </Button>
       </div>
     </div>
   );
