@@ -1,0 +1,7 @@
+1. TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+    at JSON.stringify (<anonymous>)
+    
