@@ -1,7 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import { OutlinedInput, Button, useTheme, Typography, Box } from '@mui/material';
+import { OutlinedInput, Button, Typography, Box} from '@mui/material';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+
 
 function App() {
   const [listOfUsers, setListOfUsers] = useState([]);
@@ -36,58 +38,95 @@ function App() {
 
   return (
     <div className="App">
-      <Box
-      >
+      
+      <Box sx={{bgcolor:"#bee6f0"}}>
+        <AnalyticsIcon  sx={{position: "absolute", left:0, top:0, fontSize:55}}>
+          </AnalyticsIcon>
         <Typography variant="h4">
-          Information Card
+          InfoCard
         </Typography>
       </Box>
-      <div className="usersDisplay">
-        {listOfUsers.map((user) => {
-          return (
-            <div>
-              <h1>Name: {user.name}</h1>
-              <h1>Age: {user.age}</h1>
-              <h1>Username: {user.username}</h1>
-            </div>
-          );
-        })}
-      </div>
-
-      <div>
+      <Box 
+        gap={2} 
+        sx={{
+          mt:2,
+          ml:40,
+          display: "flex"
+        }}
+        >
         <OutlinedInput
           type="text"
-          size="small"
+          sx ={
+            {
+              borderColor: 'primary.main',
+              height: '35px'
+            }
+          }
           placeholder="Name..."
-          gap="1rem"
-          color='primary'
           onChange={(event) => {
             setName(event.target.value);
           }}
         />
         <OutlinedInput
           type="number"
+          sx ={
+            {
+              borderColor: 'primary.main',
+              height: '35px'
+            }
+          }
           placeholder="Age..."
-          size="small"
           onChange={(event) => {
             setAge(event.target.value);
           }}
         />
         <OutlinedInput
           type="text"
+          sx ={
+            {
+              borderColor: 'primary.main',
+              height: '35px'
+            }
+          }
           placeholder="Username..."
-          gap="1rem"
-          size="small"
-          color='secondary'
-          border={`1px solid ${useTheme().primary}`}
           onChange={(event) => {
             setUsername(event.target.value);
           }}
         />
         <Button
-        varient="contained"
-        onClick={createUser} > Create User </Button>
-      </div>
+          variant="contained"
+          size="small"
+          onClick={createUser} > Create User 
+        </Button>
+      </Box>
+      <Box gap={4} 
+        sx={{
+          display: "flex", 
+          ml:10,
+          flexDirection: 'row',
+          flexWrap: 'wrap' 
+          }}>
+        {listOfUsers.map((user) => {
+          return (
+            <Box
+             sx ={{
+               width: "180px",
+               height: "140px",
+               border:"2px grey",
+               mt: '30px',
+               borderRadius: 4,
+               bgcolor:"#bee6f0",
+             }}
+            >
+              <h4>Name: {user.name}</h4>
+              <h4>Age: {user.age}</h4>
+              <h4>Username: {user.username}</h4>
+            </Box>
+          );
+        })}
+      </Box>
+
+      
     </div>
   );
 }
