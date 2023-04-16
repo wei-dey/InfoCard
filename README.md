@@ -1,6 +1,6 @@
 # InfoCard
 
-### This is an app to show people's basic information
+### This app shows people's basic information in cards
 
 ### To run this app, you need to do the following steps
 - cd server => npm start
